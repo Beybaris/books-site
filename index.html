@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NUET Mathematics · CSCA Математика">
+<meta property="og:description" content="NUET Mathematics және CSCA Математика — математикадан емтиханға өз бетіңше дайындалуға арналған баспа кітаптар. Қазақша және орысша басылым. WhatsApp арқылы тапсырыс.">
+<meta property="og:image" content="/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#042854">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>NUET Mathematics</title>
+<meta name="description" content="NUET Mathematics және CSCA Математика — математикадан емтиханға өз бетіңше дайындалуға арналған баспа кітаптар. Қазақша және орысша басылым.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@500&family=Onest:wght@600;800&display=swap">
+<style>
+/* Layout: navy "cover" band with a coordinate grid opens the page; everything after sits on light paper in one 680px reading column, wider only for the hero. */
+:root{
+  --navy:#042854; --navy-2:#0a3466; --grid:rgba(148,178,224,.10); --grid-major:rgba(148,178,224,.18);
+  --gold:#c9a048; --gold-ink:#8a6a22;
+  --paper:#f5f7fb; --card:#ffffff; --ink:#0c1a2e; --muted:#4d5d76; --line:#d8dfea; --tint:#e9eef7;
+  --on-navy:#f7f4ec; --on-navy-muted:#b7c4da;
+  --wa:#1f9d55; --wa-ink:#ffffff;
+  --todo-bg:rgba(201,160,72,.14);
+  --f-display:"Onest","Golos Text",system-ui,sans-serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --s-1:.875rem; --s0:1.0625rem; --s1:1.25rem; --s2:1.625rem; --s3:clamp(1.9rem,6.2vw,3.1rem);
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#06162b; --card:#0b2140; --ink:#e7edf6; --muted:#9fb0c8; --line:#1c3558; --tint:#0e2747;
+  --gold-ink:#d9b766; --todo-bg:rgba(201,160,72,.18); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#06162b; --card:#0b2140; --ink:#e7edf6; --muted:#9fb0c8; --line:#1c3558; --tint:#0e2747;
+  --gold-ink:#d9b766; --todo-bg:rgba(201,160,72,.18); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font:400 var(--s0)/1.6 var(--f-body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.col{max-width:680px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+h2{font-size:var(--s2);font-weight:800;line-height:1.15}
+h3{font-size:var(--s1);font-weight:600;line-height:1.25}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.mono{font-family:var(--f-mono);font-weight:500;font-variant-numeric:tabular-nums}
+.todo{background:var(--todo-bg);outline:1px dashed var(--gold);outline-offset:1px;border-radius:4px;padding:0 .3em;font-style:normal}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:var(--on-navy);border-bottom:1px solid rgba(255,255,255,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.brand{font-family:var(--f-display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--gold)}
+.lang{display:inline-flex;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:3px;gap:2px}
+.lang button{font:600 .82rem/1 var(--f-body);letter-spacing:.06em;color:var(--on-navy-muted);background:none;border:0;border-radius:999px;padding:9px 14px;min-height:36px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--on-navy);color:var(--navy)}
+
+/* hero */
+.hero{background-color:var(--navy);color:var(--on-navy);
+  background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;background-position:-1px -1px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:48px;align-items:center;padding-block:56px 64px}
+.hero-text{min-width:0;display:grid;gap:20px}
+.eyebrow{font:500 .78rem/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--on-navy-muted)}
+.hero h1{font-size:var(--s3);font-weight:800;line-height:1.06}
+.hero .sub{font-size:var(--s1);line-height:1.5;color:var(--on-navy);max-width:34ch}
+.rule{height:2px;background:var(--gold);width:100%;max-width:420px;border:0;margin:4px 0}
+.langnote{color:var(--on-navy-muted);font-size:var(--s-1);max-width:46ch}
+.buy{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.price{font-family:var(--f-display);font-weight:800;font-size:1.6rem;white-space:nowrap}
+.price small{font:500 .8rem var(--f-body);color:var(--on-navy-muted);display:block;letter-spacing:.02em}
+.btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--wa);color:var(--wa-ink);text-decoration:none;font:600 1rem/1.2 var(--f-body);padding:15px 22px;border-radius:999px;min-height:52px;border:0;cursor:pointer;text-align:center}
+.btn-wa:hover{filter:brightness(1.07)}
+.btn-wa svg{width:22px;height:22px;flex:none}
+.cover{margin:0;justify-self:center;width:100%;max-width:340px}
+.cover img{display:block;width:100%;height:auto;aspect-ratio:210/297;border-radius:3px;box-shadow:0 24px 50px -18px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.08)}
+.cover figcaption{margin-top:10px;font:500 .75rem var(--f-mono);color:var(--on-navy-muted);text-align:center;letter-spacing:.04em}
+
+/* facts strip */
+.facts{border-bottom:1px solid var(--line);background:var(--card)}
+.facts ul{list-style:none;margin:0;padding-block:18px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.facts li{display:grid;gap:2px}
+.facts b{font:800 1.5rem/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.facts span{font-size:var(--s-1);color:var(--muted);line-height:1.35}
+
+section.block{padding-block:56px}
+section.block + section.block{border-top:1px solid var(--line)}
+.lead{color:var(--muted);margin-top:10px;max-width:60ch}
+
+/* video */
+.video-box{position:relative;margin-top:24px;max-width:360px;border-radius:var(--radius);overflow:hidden;background:var(--navy);aspect-ratio:9/16}
+.video-box video{display:block;width:100%;height:100%;object-fit:contain;background:#000}
+.play{position:absolute;inset:0;display:grid;place-items:center;background:transparent;border:0;cursor:pointer;padding:0}
+.play span{width:76px;height:76px;border-radius:50%;background:rgba(4,40,84,.82);border:2px solid var(--gold);display:grid;place-items:center}
+.play svg{width:28px;height:28px;margin-left:4px;fill:#fff}
+.video-empty{position:absolute;inset:0;display:grid;place-content:center;gap:8px;text-align:center;padding:24px;color:var(--on-navy);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.video-empty .todo{color:var(--on-navy)}
+
+/* steps */
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0;counter-reset:st}
+.steps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps .n{font:500 .8rem var(--f-mono);color:var(--gold-ink);padding-top:.35rem;letter-spacing:.04em}
+.steps h3{margin-bottom:6px}
+.steps p{color:var(--muted)}
+.steps .count{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 16px;font:500 .85rem var(--f-mono);color:var(--ink)}
+.flow{margin-top:18px;font-weight:600;font-size:var(--s-1);color:var(--muted)}
+.flow i{font-style:normal;color:var(--gold-ink);padding:0 .35em}
+
+/* topics */
+.search{margin-top:22px;position:relative}
+.search input{width:100%;font:400 1rem var(--f-body);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:13px 44px 13px 18px;min-height:48px}
+.search input::placeholder{color:var(--muted)}
+.search svg{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2}
+.everych{margin-top:12px;font-size:var(--s-1);color:var(--muted)}
+.parts{margin-top:18px;display:grid;gap:10px}
+details.part{background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+details.part>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:16px 18px;min-height:56px}
+details summary::-webkit-details-marker{display:none}
+.part>summary h3{font-size:1.1rem}
+.part>summary .mono{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.chev{flex:none;width:12px;height:12px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg) translateY(-3px);transition:transform .2s}
+details[open]>summary .chev{transform:rotate(-135deg) translateY(-3px)}
+.sumr{display:flex;align-items:center;gap:14px;flex:none}
+.chs{border-top:1px solid var(--line)}
+details.ch{border-bottom:1px solid var(--line)}
+details.ch:last-child{border-bottom:0}
+details.ch>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 12px;align-items:baseline;padding:13px 18px;min-height:48px}
+.ch .no{font:500 .78rem var(--f-mono);color:var(--gold-ink);white-space:nowrap}
+.ch .tt{font-weight:500;line-height:1.35}
+.ch .pg{font:500 .75rem var(--f-mono);color:var(--muted);white-space:nowrap}
+.ch ul{margin:0;padding:0 18px 14px 18px;list-style:none;display:grid;gap:4px}
+.ch li{color:var(--muted);font-size:.95rem;line-height:1.4;padding-left:14px;position:relative}
+.ch li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:1px;background:var(--muted)}
+mark{background:rgba(201,160,72,.32);color:inherit;border-radius:2px;padding:0 1px}
+.none{margin-top:16px;color:var(--muted)}
+
+/* authors */
+.authors{margin-top:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.author{border-top:2px solid var(--ink);padding-top:14px;display:grid;gap:8px}
+.author p{color:var(--muted)}
+
+/* faq */
+.faq{margin-top:22px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;font-weight:600;min-height:52px}
+.faq .ans{padding:0 0 18px;color:var(--muted);display:grid;gap:8px;max-width:62ch}
+
+/* order */
+.order{background:var(--tint)}
+.order-card{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:22px;max-width:680px}
+.orow{display:grid;gap:10px}
+.olabel{font:500 .78rem var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.oprice{font:800 2rem/1 var(--f-display)}
+.eds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ed{position:relative}
+.ed input{position:absolute;opacity:0;pointer-events:none}
+.ed label{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;border:1.5px solid var(--line);border-radius:var(--radius);padding:10px 12px;cursor:pointer;min-height:76px;height:100%}
+.ed img{width:44px;height:auto;aspect-ratio:210/297;border-radius:2px;display:block}
+.ed b{display:block;font-weight:600;line-height:1.25}
+.ed small{color:var(--muted);font-size:.8rem;line-height:1.3;display:block}
+.ed input:checked+label{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold);background:var(--todo-bg)}
+.ed input:focus-visible+label{outline:2px solid var(--gold);outline-offset:2px}
+.field input{width:100%;font:400 1rem var(--f-body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 14px;min-height:48px}
+.deliv{color:var(--muted);display:grid;gap:6px}
+.preview{background:var(--paper);border:1px solid var(--line);border-radius:10px 10px 10px 2px;padding:12px 14px;white-space:pre-line;font-size:.95rem;line-height:1.5}
+.numrow{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:var(--s-1);color:var(--muted)}
+.numrow .mono{color:var(--ink);user-select:all}
+.copy{font:600 .8rem var(--f-body);background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;min-height:32px}
+.order-card .btn-wa{width:100%}
+
+footer{background:var(--navy);color:var(--on-navy-muted);font-size:.85rem;line-height:1.55}
+footer .wrap{padding-block:28px 32px;display:grid;gap:10px}
+footer b{color:var(--on-navy);font-family:var(--f-display)}
+
+/* sticky mobile order bar */
+.bar{display:none}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:104px minmax(0,1fr);gap:14px 16px;padding-block:22px 32px;align-items:start;
+    grid-template-areas:"eye eye" "h1 h1" "rule rule" "cov sub" "cov note" "buy buy"}
+  .hero-text{display:contents}
+  .eyebrow{grid-area:eye;font-size:.7rem}
+  .hero h1{grid-area:h1;font-size:clamp(1.75rem,8.4vw,2.3rem)}
+  .rule{grid-area:rule;margin:0}
+  .hero .sub{grid-area:sub;font-size:1rem;line-height:1.45}
+  .langnote{grid-area:note;font-size:.85rem}
+  .buy{grid-area:buy;margin-top:6px}
+  .buy .btn-wa{flex:1 1 220px}
+  .cover{grid-area:cov;max-width:104px;justify-self:start}
+  .cover img{box-shadow:0 12px 24px -10px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08)}
+  .cover figcaption{display:none}
+  .facts ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}
+  .facts li:last-child{grid-column:1/-1}
+  section.block{padding-block:44px}
+  .authors{grid-template-columns:minmax(0,1fr)}
+  .eds{grid-template-columns:minmax(0,1fr)}
+  .video-box{max-width:100%}
+  .bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--navy);color:var(--on-navy);border-top:1px solid rgba(255,255,255,.12);
+    padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+    transition:transform .25s ease}
+  .bar.off{transform:translateY(110%)}
+  .bar .p{font:800 1.1rem var(--f-display);white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+  .bar .btn-wa{min-height:44px;padding:10px 18px;font-size:.95rem}
+  body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:380px){.btn-wa{font-size:.95rem;padding:14px 16px}}
+
+/* book switch */
+.books{background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08)}
+.books .wrap{padding-block:10px 12px}
+.book-tab{display:grid;gap:1px;text-align:left;background:transparent;color:var(--on-navy-muted);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:9px 12px;cursor:pointer;font:inherit;min-height:52px}
+.book-tab b{font:800 1rem/1.15 var(--f-display);color:var(--on-navy);letter-spacing:-.01em}
+.book-tab span{font-size:.78rem;line-height:1.25}
+.book-tab[aria-pressed="true"]{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold);background:rgba(201,160,72,.10)}
+.book-tab[aria-pressed="true"] span{color:var(--on-navy)}
+
+/* page gallery */
+.gallery{margin-top:24px;display:grid;grid-auto-flow:column;grid-auto-columns:min(62%,230px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;-webkit-overflow-scrolling:touch}
+.gallery figure{margin:0;scroll-snap-align:start;display:grid;gap:8px;align-content:start}
+.gallery img{display:block;width:100%;height:auto;aspect-ratio:210/297;border-radius:4px;border:1px solid var(--line);box-shadow:0 10px 24px -14px rgba(4,40,84,.45);background:#fff}
+.gallery figcaption{font-size:.85rem;line-height:1.35;color:var(--muted)}
+.gallery-note{margin-top:4px;font-size:.8rem;color:var(--muted)}
+
+/* reviews */
+.reviews{margin-top:22px;display:grid;gap:14px}
+.review{margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 16px;display:grid;gap:12px}
+.review blockquote{margin:0;display:grid;gap:8px;line-height:1.55}
+.review figcaption{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:.85rem;color:var(--muted)}
+.review figcaption b{color:var(--ink);font-weight:600}
+.review .tag{font:500 .72rem var(--f-mono);letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+.orig{margin-top:10px;font-size:.8rem;color:var(--muted)}
+
+/* order: book choice */
+.bks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.bk label{grid-template-columns:minmax(0,1fr);text-align:left;min-height:64px}
+.bk label .pr{font:500 .8rem var(--f-mono);color:var(--muted)}
+@media (max-width:760px){
+  .bks{grid-template-columns:minmax(0,1fr)}
+  .books .wrap{padding-block:6px 8px}
+  .book-tab{padding:6px 10px;min-height:44px}
+  .book-tab span{font-size:.72rem}
+  .hero .wrap{padding-block:16px 28px}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand js-brand" href="#top">NUET <span>Mathematics</span></a>
+    <div class="lang" role="group" aria-label="Тіл / Язык">
+      <button type="button" id="lang-kz" data-lang="kz" aria-pressed="true">ҚАЗ</button>
+      <button type="button" id="lang-ru" data-lang="ru" aria-pressed="false">РУС</button>
+    </div>
+  </div>
+</header>
+
+<nav class="books" aria-label="Кітаптар / Книги">
+  <div class="wrap" style="max-width:1080px">
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:560px">
+      <button type="button" class="book-tab" id="tab-nuet" data-book="nuet" aria-pressed="true"><b>NUET Mathematics</b><span data-t="tabNuet"></span></button>
+      <button type="button" class="book-tab" id="tab-csca" data-book="csca" aria-pressed="false"><b>CSCA Математика</b><span data-t="tabCsca"></span></button>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <p class="eyebrow" data-b="eyebrow"></p>
+        <h1 data-b="h1"></h1>
+        <p class="sub" data-b="sub"></p>
+        <hr class="rule">
+        <p class="langnote" data-b="langnote"></p>
+        <div class="buy">
+          <p class="price"><small data-t="priceLabel"></small><span class="js-price"></span></p>
+          <a class="btn-wa js-wa" id="cta-hero" href="#order" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span data-t="cta"></span></a>
+        </div>
+      </div>
+      <figure class="cover">
+        <img class="js-cover" src="cover-kz.webp" width="900" height="1273" alt="">
+        <figcaption class="js-pages"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="facts">
+    <div class="wrap"><ul id="facts"></ul></div>
+  </div>
+
+  <section class="block" id="inside">
+    <div class="wrap"><div class="col">
+      <h2 data-t="vTitle"></h2>
+      <p class="lead" data-b="mediaLead"></p>
+      <div class="video-box" id="videoBox"></div>
+      <div class="gallery" id="gallery" hidden></div>
+    </div></div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap"><div class="col">
+      <h2 data-t="sTitle"></h2>
+      <p class="flow" data-t="flow"></p>
+      <ol class="steps" id="steps"></ol>
+    </div></div>
+  </section>
+
+  <section class="block" id="reviews" hidden>
+    <div class="wrap"><div class="col">
+      <h2 data-t="rTitle"></h2>
+      <div class="reviews" id="reviewList"></div>
+      <p class="orig" data-t="rOrig"></p>
+    </div></div>
+  </section>
+
+  <section class="block" id="topics">
+    <div class="wrap"><div class="col">
+      <h2 data-t="tTitle"></h2>
+      <div class="search">
+        <label for="q" style="position:absolute;left:-9999px" data-t="tSearchLabel"></label>
+        <input id="q" type="search" autocomplete="off" enterkeyhint="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      </div>
+      <p class="everych" data-b="every"></p>
+      <div class="parts" id="parts"></div>
+      <p class="none" id="none" hidden data-t="tNone"></p>
+    </div></div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap"><div class="col">
+      <h2 data-t="aTitle"></h2>
+      <div class="authors">
+        <div class="author"><h3 data-t="a1n"></h3><p id="bio1"></p></div>
+        <div class="author"><h3 data-t="a2n"></h3><p id="bio2"></p></div>
+      </div>
+      <h2 style="margin-top:48px" data-t="qTitle"></h2>
+      <div class="faq" id="faq"></div>
+    </div></div>
+  </section>
+
+  <section class="block order" id="order">
+    <div class="wrap">
+      <h2 data-t="oTitle"></h2>
+      <p class="lead" data-t="oLead"></p>
+      <form class="order-card" id="orderForm" novalidate>
+        <fieldset class="orow" style="border:0;margin:0;padding:0">
+          <legend class="olabel" style="margin-bottom:10px" data-t="oBook"></legend>
+          <div class="bks">
+            <div class="ed bk"><input type="radio" name="bk" id="bk-nuet" value="nuet"><label for="bk-nuet"><span><b>NUET Mathematics</b><small data-t="tabNuet"></small><small class="pr js-pn"></small></span></label></div>
+            <div class="ed bk"><input type="radio" name="bk" id="bk-csca" value="csca"><label for="bk-csca"><span><b>CSCA Математика</b><small data-t="tabCsca"></small><small class="pr js-pc"></small></span></label></div>
+            <div class="ed bk"><input type="radio" name="bk" id="bk-both" value="both"><label for="bk-both"><span><b data-t="both"></b><small>NUET + CSCA</small><small class="pr js-p2"></small></span></label></div>
+          </div>
+        </fieldset>
+        <fieldset class="orow" style="border:0;margin:0;padding:0">
+          <legend class="olabel" style="margin-bottom:10px" data-t="oEdition"></legend>
+          <div class="eds">
+            <div class="ed"><input type="radio" name="ed" id="ed-kz" value="kz"><label for="ed-kz"><img class="js-ed-kz" src="cover-kz.webp" alt="" width="44" height="62"><span><b data-t="edKz"></b><small data-t="edKzNote"></small></span></label></div>
+            <div class="ed"><input type="radio" name="ed" id="ed-ru" value="ru"><label for="ed-ru"><img class="js-ed-ru" src="cover-ru.webp" alt="" width="44" height="62"><span><b data-t="edRu"></b><small data-t="edRuNote"></small></span></label></div>
+          </div>
+        </fieldset>
+        <div class="orow">
+          <span class="olabel" data-t="priceLabelShort"></span>
+          <span class="oprice js-total"></span>
+        </div>
+        <div class="orow field">
+          <label class="olabel" for="city" data-t="oCity"></label>
+          <input id="city" type="text" autocomplete="address-level2" maxlength="60">
+        </div>
+        <div class="orow">
+          <span class="olabel" data-t="oDelivery"></span>
+          <div class="deliv js-delivery"></div>
+        </div>
+        <div class="orow">
+          <span class="olabel" data-t="oPreview"></span>
+          <div class="preview" id="preview"></div>
+        </div>
+        <a class="btn-wa js-wa" id="cta-order" href="#order" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span data-t="cta"></span></a>
+        <div class="numrow"><span data-t="oNumber"></span> <span class="mono js-num"></span> <button type="button" class="copy" id="copyNum" data-t="copy"></button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>NUET Mathematics · CSCA Математика</b>
+    <p data-t="authorsLine"></p>
+    <p data-t="discNuet"></p>
+    <p data-t="discCsca"></p>
+  </div>
+</footer>
+
+<div class="bar off" id="bar" aria-hidden="true">
+  <span class="p js-price"></span>
+  <a class="btn-wa js-wa" id="cta-bar" href="#order" target="_blank" rel="noopener" tabindex="-1"><span data-t="ctaShort"></span></a>
+</div>
+
+<script>
+/* ================== ДАННЫЕ ДЛЯ ЗАПОЛНЕНИЯ ================== */
+const CONFIG = {
+  price: { nuet: 15000, csca: 15000 },   // тенге
+  whatsapp: "77785649144",              // 8 778 564 91 44
+  delivery: {
+    kz: "Қазақстанның кез келген қаласына жеткіземіз: Қазпошта немесе inDrive арқылы. Жеткізу ақысын сатып алушы төлейді, бағасы қаланың қашықтығына байланысты. Нақты сомасын WhatsApp-та сұра.",
+    ru: "Доставляем в любой город Казахстана: через Казпочту или inDrive. Доставку оплачивает покупатель, цена зависит от того, насколько далеко твой город. Точную сумму уточни в WhatsApp."
+  },
+  bio: { beibarys: { kz: "", ru: "" }, arsylan: { kz: "", ru: "" } }
+};
+/* ============================================================ */
+
+const TOCS = {"nuet":{"kz":[{"t":"I бөлім. Сандар","ch":[{"n":1,"t":"Бөлінгіштік, ЕҮОБ, ЕКОЕ және қалдықтар","p":2,"s":["Бөлгіш пен еселік","Жай сандар","Жай көбейткіштерге жіктеу","ЕҮОБ — ең үлкен ортақ бөлгіш","ЕКОЕ — ең кіші ортақ еселік","Бөлінгіштік белгілері","Қалдықтар","Калькуляторсыз есептеу"]},{"n":2,"t":"Бөлшектер, ондық бөлшектер, дөңгелектеу және шекаралар","p":21,"s":["Бөлшек деген не? Салыстыру","Бөлшектермен амалдар","Ондық бөлшектер","Бөлшек, ондық бөлшек, пайыз","Периодты ондық бөлшектер","Дөңгелектеу","Қателік аралығы және шекаралар","Бағалау (estimation)"]},{"n":3,"t":"Дәрежелер және стандарт түр","p":38,"s":["Квадраттар, кубтар және түбірлер","Дәреже заңдары","Нөлдік және теріс дәреже","Бөлшек дәреже","Дәрежелі теңдеулер және салыстыру","Стандарт түр"]},{"n":4,"t":"Түбірлер (surds) және иррационалдықтан құтылу","p":52,"s":["Рационал және иррационал сандар","Түбірлерді ықшамдау және қосу","Көбейту және жақшаларды ашу","Бөлімді иррационалдықтан құтылту","Түбірлерді салыстыру және бағалау"]}]},{"t":"II бөлім. Қатынас және пропорция","ch":[{"n":5,"t":"Қатынас, пайыз, күрделі пайыз","p":66,"s":["Қатынас деген не?","Берілген қатынаста бөлу","Қатынас өмірде: рецепт, қоспа, масштаб","Пайыз және көбейткіш","Пайыздық өзгеріс және кері пайыз","Жай пайыз, күрделі пайыз, өсу және кему"]},{"n":6,"t":"Тура және кері пропорционалдық","p":80,"s":["Тура пропорция","Кері пропорция","Дәрежелі пропорциялар","Өзгеріс қалай әсер етеді? (k-сыз тәсіл)"]},{"n":7,"t":"Жылдамдық, өлшем бірліктері, құрама шамалар","p":92,"s":["Уақыт","Ұзындық, аудан, көлем, масса","Жылдамдық","Тығыздық және қысым","Басқа құрама шамалар"]}]},{"t":"III бөлім. Алгебра","ch":[{"n":8,"t":"Өрнектер: жақшаны ашу, көбейткіштерге жіктеу, алгебралық бөлшектер","p":106,"s":["Алгебралық жазу және сан қою","Ұқсас мүшелер және жақшаны ашу","Көбейткіштерге жіктеу","Алгебралық бөлшектер","Тепе-теңдік және дәлелдеу"]},{"n":9,"t":"Формуланы түрлендіру","p":120,"s":["Негізгі идея: кері амалдар","Бөлшектері бар формулалар","Квадраттар мен түбірлер","Айнымалы екі рет кездессе","Формулаға сан қою"]},{"n":10,"t":"Сызықтық теңдеулер, теңсіздіктер және мәтінді есептер","p":132,"s":["Сызықтық теңдеулер","Мәтінді есептен теңдеуге","Сызықтық теңсіздіктер","Екі айнымалы теңсіздіктер: аймақтар"]},{"n":11,"t":"Квадрат теңдеулер және квадраттық функция","p":144,"s":["Жіктеу арқылы шешу","Толық квадратқа келтіру","Квадрат теңдеудің формуласы","Параболаның графигі","Жасырын квадрат теңдеулер және мәтінді есептер"]},{"n":12,"t":"Теңдеулер жүйесі","p":157,"s":["Қосу (жою) тәсілі","Алмастыру тәсілі","Мәтінді есептер","Сызықтық және квадрат теңдеу"]},{"n":13,"t":"Координаталық жазықтық: түзу және шеңбер","p":168,"s":["Арақашықтық және орта нүкте","Еңіс (gradient)","Түзудің теңдеуі","Параллель және перпендикуляр түзулер","Қиылысу нүктелері және аудандар","Шеңбер"]},{"n":14,"t":"Функция графиктері","p":181,"s":["Негізгі графиктер","Тригонометриялық графиктер","Графиктерді түрлендіру","Өмірдегі графиктер: жол мен жылдамдық","Теңдеулерді графикпен шешу"]},{"n":15,"t":"Тізбектер","p":195,"s":["Екі түрлі ереже","Сызықтық (арифметикалық) тізбектер","Квадраттық тізбектер","Геометриялық тізбектер","Итерация (қайталанатын процестер)"]}]},{"t":"IV бөлім. Геометрия","ch":[{"n":16,"t":"Бұрыштар, параллель түзулер, көпбұрыштар","p":208,"s":["Негізгі бұрыш фактілері","Параллель түзулер","Үшбұрыштар","Төртбұрыштар","Көпбұрыштар","Симметрия және азимут"]},{"n":17,"t":"Үшбұрыштар: теңдік, ұқсастық, Пифагор теоремасы","p":221,"s":["Үшбұрыштардың теңдігі","Ұқсас үшбұрыштар","Ұқсас фигуралардың аудандары мен көлемдері","Пифагор теоремасы","Кеңістіктегі Пифагор (3D)"]},{"n":18,"t":"Тікбұрышты үшбұрыштың тригонометриясы","p":233,"s":["Синус, косинус, тангенс","Қабырғаны табу","Дәл мәндер","Бір қатынастан басқаларын табу","Жоғары және төмен қарау бұрыштары, азимут, 3D"]},{"n":19,"t":"Шеңбер теоремалары","p":245,"s":["1-теорема: центрдегі бұрыш екі есе үлкен","3-теорема: жарты шеңбердегі бұрыш — тік","4-теорема: іштей сызылған төртбұрыш","Жанамалар","6-теорема: хорда және центрден түсірілген перпендикуляр"]},{"n":20,"t":"Аудан, периметр, доға және сектор","p":259,"s":["Негізгі фигуралардың ауданы","Шеңбер және дөңгелек","Доға және сектор","Құрама фигуралар және боялған аймақтар","Бірліктер және масштаб"]},{"n":21,"t":"Түрлендірулер және векторлар","p":272,"s":["Шағылысу","Бұру","Параллель көшіру","Гомотетия (enlargement)","Векторлар","Векторлық геометрия"]},{"n":22,"t":"Кеңістік фигуралары: көлем және бет ауданы","p":286,"s":["Беттер, қырлар, төбелер","Жоғарыдан және алдынан көрініс","Призма және цилиндр","Пирамида, конус, шар","Кеңістіктегі Пифагор және бірліктер","Ұқсас денелер"]}]},{"t":"V бөлім. Ықтималдық және статистика","ch":[{"n":23,"t":"Санау, ықтималдық, орта мән","p":299,"s":["Санау","Ықтималдық негіздері","Екі оқиға: кесте және ағаш","Венн диаграммасы","Орта мәндер және ауқым"]}]}],"ru":[{"t":"Часть I. Числа","ch":[{"n":1,"t":"Делимость, НОД, НОК и остатки","p":2,"s":["Делитель и кратное","Простые числа","Разложение на простые множители","НОД — наибольший общий делитель","НОК — наименьшее общее кратное","Признаки делимости","Остатки","Вычисления без калькулятора"]},{"n":2,"t":"Дроби, десятичные дроби, округление и границы","p":20,"s":["Что такое дробь? Сравнение","Действия с дробями","Десятичные дроби","Дробь, десятичная дробь, процент","Периодические десятичные дроби","Округление","Интервал погрешности и границы","Оценка (estimation)"]},{"n":3,"t":"Степени и стандартный вид","p":36,"s":["Квадраты, кубы и корни","Свойства степеней","Нулевая и отрицательная степень","Дробная степень","Показательные уравнения и сравнение","Стандартный вид"]},{"n":4,"t":"Корни (surds) и избавление от иррациональности в знаменателе","p":49,"s":["Рациональные и иррациональные числа","Упрощение и сложение корней","Умножение и раскрытие скобок","Избавление от иррациональности в знаменателе","Сравнение и оценка корней"]}]},{"t":"Часть II. Отношения и пропорции","ch":[{"n":5,"t":"Отношения, проценты, сложные проценты","p":63,"s":["Что такое отношение?","Деление в данном отношении","Отношения в жизни: рецепт, смесь, масштаб","Процент и множитель","Процентное изменение и обратный процент","Простые и сложные проценты, рост и уменьшение"]},{"n":6,"t":"Прямая и обратная пропорциональность","p":75,"s":["Прямая пропорциональность","Обратная пропорциональность","Степенная пропорциональность","Как влияет изменение? (способ без $k$)"]},{"n":7,"t":"Скорость, единицы измерения, составные величины","p":87,"s":["Время","Длина, площадь, объём, масса","Скорость","Плотность и давление","Другие составные величины"]}]},{"t":"Часть III. Алгебра","ch":[{"n":8,"t":"Выражения: раскрытие скобок, разложение на множители, алгебраические дроби","p":101,"s":["Алгебраическая запись и подстановка чисел","Подобные члены и раскрытие скобок","Разложение на множители","Алгебраические дроби","Тождества и доказательства"]},{"n":9,"t":"Преобразование формул","p":114,"s":["Главная идея: обратные действия","Формулы с дробями","Квадраты и корни","Когда переменная встречается дважды","Подстановка чисел в формулу"]},{"n":10,"t":"Линейные уравнения, неравенства и текстовые задачи","p":126,"s":["Линейные уравнения","От текстовой задачи к уравнению","Линейные неравенства","Неравенства с двумя переменными: области"]},{"n":11,"t":"Квадратные уравнения и квадратичная функция","p":137,"s":["Решение разложением на множители","Выделение полного квадрата","Формула корней квадратного уравнения","График параболы","Скрытые квадратные уравнения и текстовые задачи"]},{"n":12,"t":"Системы уравнений","p":150,"s":["Способ сложения (исключения)","Способ подстановки","Текстовые задачи","Линейное и квадратное уравнения"]},{"n":13,"t":"Координатная плоскость: прямая и окружность","p":161,"s":["Расстояние и середина отрезка","Угловой коэффициент (gradient)","Уравнение прямой","Параллельные и перпендикулярные прямые","Точки пересечения и площади","Окружность"]},{"n":14,"t":"Графики функций","p":174,"s":["Основные графики","Тригонометрические графики","Преобразования графиков","Графики из жизни: путь и скорость","Решение уравнений с помощью графика"]},{"n":15,"t":"Последовательности","p":187,"s":["Два вида правил","Линейные (арифметические) последовательности","Квадратичные последовательности","Геометрические последовательности","Итерация (повторяющиеся процессы)"]}]},{"t":"Часть IV. Геометрия","ch":[{"n":16,"t":"Углы, параллельные прямые, многоугольники","p":200,"s":["Основные факты об углах","Параллельные прямые","Треугольники","Четырёхугольники","Многоугольники","Симметрия и азимут"]},{"n":17,"t":"Треугольники: равенство, подобие, теорема Пифагора","p":211,"s":["Равенство треугольников","Подобные треугольники","Площади и объёмы подобных фигур","Теорема Пифагора","Теорема Пифагора в пространстве (3D)"]},{"n":18,"t":"Тригонометрия прямоугольного треугольника","p":223,"s":["Синус, косинус, тангенс","Нахождение стороны","Точные значения","Нахождение отношений по одному данному","Углы подъёма и спуска, азимут, 3D"]},{"n":19,"t":"Теоремы об окружности","p":234,"s":["Теорема 1: центральный угол вдвое больше","Теорема 3: угол, опирающийся на полуокружность, — прямой","Теорема 4: вписанный четырёхугольник","Касательные","Теорема 6: хорда и перпендикуляр из центра"]},{"n":20,"t":"Площадь, периметр, дуга и сектор","p":247,"s":["Площади основных фигур","Окружность и круг","Дуга и сектор","Составные фигуры и закрашенные области","Единицы и масштаб"]},{"n":21,"t":"Преобразования и векторы","p":259,"s":["Отражение","Поворот","Параллельный перенос","Гомотетия (enlargement)","Векторы","Векторная геометрия"]},{"n":22,"t":"Пространственные фигуры","p":272,"s":["Грани, рёбра, вершины","Вид сверху и вид спереди","Призма и цилиндр","Пирамида, конус, шар","Пифагор в пространстве и единицы","Подобные тела"]}]},{"t":"Часть V. Вероятность и статистика","ch":[{"n":23,"t":"Комбинаторика, вероятность, средние","p":286,"s":["Подсчёт вариантов","Основы вероятности","Два события: таблица и дерево","Диаграмма Венна","Средние и размах"]}]}]},"csca":{"kz":[{"t":"I бөлім. Алгебра негіздері","ch":[{"n":1,"t":"Жиындар","p":2,"s":["Жиын және элемент","Сандық жиындар","∈ мен ⊆: элемент пе, әлде жиын ба?","Жиынды қалай жазады?","Жиындармен амалдар","Сан осінде амал жасау","Теңсіздікпен берілген жиындар"]},{"n":2,"t":"Теңсіздіктер","p":18,"s":["Теңсіздіктің қасиеттері","Сызықтық теңсіздіктер мен жүйелер","Квадрат теңсіздіктер","Бөлшек-рационал теңсіздіктер","Модулі бар теңсіздіктер"]},{"n":3,"t":"Координаталық жазықтық","p":33,"s":["Ширектер және осьтердегі нүктелер","Симметрия","Екі нүкте арасындағы қашықтық","Кесіндінің ортасы"]}]},{"t":"II бөлім. Функциялар","ch":[{"n":4,"t":"Функция қасиеттері","p":49,"s":["Анықталу облысы","Бірдей функциялар","Мәндер жиыны","Жұп және тақ функциялар","Монотондылық: өседі ме, кемиді ме?","Кері функция"]},{"n":5,"t":"Дәреже және логарифм","p":65,"s":["Дәреженің қасиеттері","Логарифм","Көрсеткіштік функция y = aˣ","Логарифмдік функция y = loga x","Дәрежелік функция y = x","Мәндерді салыстыру","Теңдеулер мен теңсіздіктер"]}]},{"t":"III бөлім. Тригонометрия","ch":[{"n":6,"t":"Тригонометрия I: бұрыштар мен мәндер","p":80,"s":["Градус және радиан","Тригонометриялық функциялардың анықтамасы","Арнайы бұрыштардың мәндері","Ширектер бойынша таңбалар","Негізгі тепе-теңдіктер","Келтіру формулалары"]},{"n":7,"t":"Тригонометрия II: формулалар","p":96,"s":["Қосу және азайту формулалары","Екі еселенген бұрыш формулалары","Жарты бұрыш формулалары","a sin x + b cos x түрлендіру"]},{"n":8,"t":"Тригонометриялық функциялар","p":111,"s":["y = sin x және y = cos x","y = tan x","y = A sin(ωx + φ) + B функциясы","Ең үлкен және ең кіші мән: күрделірек жағдайлар"]}]},{"t":"IV бөлім. Тізбектер","ch":[{"n":9,"t":"Арифметикалық прогрессия","p":125,"s":["Тізбек және жалпы мүше","Арифметикалық прогрессия","Арифметикалық орта және қасиеттер","Алғашқы n мүшенің қосындысы","Кері шама тәсілі"]},{"n":10,"t":"Геометриялық прогрессия","p":138,"s":["Геометриялық прогрессия","Геометриялық орта және қасиеттер","Алғашқы n мүшенің қосындысы","Sn арқылы an -ді табу","Аралас тізбектердің қосындысы"]}]},{"t":"V бөлім. Аналитикалық геометрия","ch":[{"n":11,"t":"Түзу","p":152,"s":["Көлбеу бұрышы және бұрыштық коэффициент","Түзу теңдеуінің түрлері","Параллель және перпендикуляр түзулер","Екі түзудің қиылысу нүктесі","Қашықтық"]},{"n":12,"t":"Шеңбер","p":167,"s":["Шеңбердің стандарт теңдеуі","Шеңбердің жалпы теңдеуі","Нүкте мен шеңбер","Түзу мен шеңбер","Екі шеңбер"]},{"n":13,"t":"Эллипс, гипербола, парабола","p":180,"s":["Эллипс","Гипербола","Парабола","mx2 + ny 2 = 1 теңдеуі"]}]},{"t":"VI бөлім. Векторлар, комплекс сандар, ықтималдық","ch":[{"n":14,"t":"Векторлар","p":197,"s":["Вектор ұғымы","Векторларды қосу және азайту","Санға көбейту және коллинеарлық","Вектордың координаталары","Скаляр көбейтінді","Параллель және перпендикуляр шарттары"]},{"n":15,"t":"Комплекс сандар","p":210,"s":["Жорамал бірлік i және оның дәрежелері","Алгебралық түр. Комплекс сандардың теңдігі","Амалдар. Түйіндес сан","Модуль және комплекс жазықтық","|z − z0 |-дің геометриялық мағынасы","Теріс дискриминантты квадрат теңдеулер"]},{"n":16,"t":"Санау тәсілдері және ықтималдық","p":223,"s":["Қосу және көбейту принциптері","Орналастыру және теру","Классикалық ықтималдық","Қарама-қарсы оқиға: «ең болмаса біреуі»","Үйлесімсіз және тәуелсіз оқиғалар","Қайтармай алу, рет және орташа мән"]}]},{"t":"VII бөлім. Қосымша","ch":[{"n":17,"t":"Қосымша тақырыптар","p":241,"s":["Туынды","Стереометрия","Статистика","Қалыпты үлестірім"]}]}],"ru":[{"t":"Часть I. Основы алгебры","ch":[{"n":1,"t":"Множества","p":2,"s":["Множество и элемент","Числовые множества","∈ или ⊆: элемент или множество?","Способы записи множеств","Операции над множествами","Операции на числовой прямой","Множества, заданные неравенствами"]},{"n":2,"t":"Неравенства","p":17,"s":["Свойства неравенств","Линейные неравенства и системы","Квадратные неравенства","Дробно-рациональные неравенства","Неравенства с модулем"]},{"n":3,"t":"Координатная плоскость","p":32,"s":["Четверти и точки на осях","Симметрия","Расстояние между двумя точками","Середина отрезка"]}]},{"t":"Часть II. Функции","ch":[{"n":4,"t":"Свойства функций","p":49,"s":["Область определения","Одинаковые функции","Множество значений","Чётные и нечётные функции","Монотонность","Обратная функция"]},{"n":5,"t":"Степени и логарифмы","p":65,"s":["Свойства степеней","Логарифм","Показательная функция y = aˣ","Логарифмическая функция y = loga x","Степенная функция y = x","Сравнение значений","Уравнения и неравенства"]}]},{"t":"Часть III. Тригонометрия","ch":[{"n":6,"t":"Тригонометрия I: углы и значения","p":80,"s":["Градусы и радианы","Определение тригонометрических функций","Значения для особых углов","Знаки по четвертям","Основные тождества","Формулы приведения"]},{"n":7,"t":"Тригонометрия II: формулы","p":96,"s":["Формулы сложения и вычитания","Формулы двойного угла","Формулы половинного угла","Преобразование a sin x + b cos x"]},{"n":8,"t":"Тригонометрические функции","p":111,"s":["y = sin x и y = cos x","y = tan x","Функция y = A sin(ωx + φ) + B","Наибольшее и наименьшее значение: случаи посложнее"]}]},{"t":"Часть IV. Последовательности","ch":[{"n":9,"t":"Арифметическая прогрессия","p":125,"s":["Последовательность и общий член","Арифметическая прогрессия","Среднее арифметическое и свойства","Сумма первых n членов","Метод обратных величин"]},{"n":10,"t":"Геометрическая прогрессия","p":138,"s":["Геометрическая прогрессия","Среднее геометрическое и свойства","Сумма первых n членов","Как найти an через Sn","Сумма смешанных последовательностей"]}]},{"t":"Часть V. Аналитическая геометрия","ch":[{"n":11,"t":"Прямая","p":153,"s":["Угол наклона и угловой коэффициент","Виды уравнения прямой","Параллельные и перпендикулярные прямые","Точка пересечения двух прямых","Расстояние"]},{"n":12,"t":"Окружность","p":168,"s":["Каноническое уравнение окружности","Общее уравнение окружности","Точка и окружность","Прямая и окружность","Две окружности"]},{"n":13,"t":"Эллипс, гипербола, парабола","p":181,"s":["Эллипс","Гипербола","Парабола","Уравнение mx2 + ny 2 = 1"]}]},{"t":"Часть VI. Векторы, комплексные числа, вероятность","ch":[{"n":14,"t":"Векторы","p":197,"s":["Понятие вектора","Сложение и вычитание векторов","Умножение на число и коллинеарность","Координаты вектора","Скалярное произведение","Условия параллельности и перпендикулярности"]},{"n":15,"t":"Комплексные числа","p":210,"s":["Мнимая единица i и её степени","Алгебраическая форма. Равенство комплексных чисел","Действия. Сопряжённое число","Модуль и комплексная плоскость","Геометрический смысл |z − z0 |","Квадратные уравнения с отрицательным дискриминантом"]},{"n":16,"t":"Комбинаторика и вероятность","p":223,"s":["Правила сложения и умножения","Размещения и сочетания","Классическая вероятность","Противоположное событие: «хотя бы один»","Несовместные и независимые события","Без возвращения, порядок и среднее значение"]}]},{"t":"Часть VII. Дополнение","ch":[{"n":17,"t":"Дополнительные темы","p":242,"s":["Производная","Стереометрия","Статистика","Нормальное распределение"]}]}]}};
+
+const BOOKS = {
+nuet: {
+  name: "NUET Mathematics", brand: 'NUET <span>Mathematics</span>',
+  pages: { kz: 447, ru: 432 },
+  cover: { kz: "cover-kz.webp", ru: "cover-ru.webp" },
+  media: { type: "video", src: { kz: "video.mp4", ru: "video-ru.mp4" }, poster: { kz: "poster.jpg", ru: "poster-ru.jpg" } },
+  kz: {
+    eyebrow: "Nazarbayev University Entrance Test · Mathematics",
+    h1: "NUET математикасына өз бетіңше дайындал",
+    sub: "Тақырыпты мысал арқылы түсінесің, сол тақырыпқа есеп шығарасың, соңында сынақ тестпен өзіңді тексересің.",
+    langnote: "Түсіндірме — қазақ тілінде. Есептер — ағылшын тілінде, емтихандағыдай.",
+    coverAlt: "NUET Mathematics кітабының қазақша басылымының мұқабасы",
+    facts: [["23","тарау, барлық тақырыптар"],["230","қадаммен шешілген мысал"],["369","«Өзіңді тексер» жаттығуы"],["1150","тарау тестінің сұрағы"],["10 × 30","сынақ тест, шешулерімен"]],
+    mediaLead: "25 секундта кітаптың ішін көр: мысалдар, сызбалар, сынақ тест. Толық мазмұны төмендегі тақырыптар тізімінде.",
+    steps: [
+      ["Мысалды талда","Әр бөлім өмірден алынған мысалдан басталады. Ереже одан кейін беріледі. Тарау соңында 10 мысал қадам-қадаммен шешілген.",["23 тарау","230 мысал"]],
+      ["Тақырып бойынша есеп шығар","Әр бөлімнен кейін «Өзіңді тексер» жаттығулары бар, жауаптары тарау ішінде. Тарау соңында 50 сұрақтық тест: алдымен емтихан деңгейі, сосын қиынырақ.",["369 жаттығу","1150 тест сұрағы"]],
+      ["Сынақ тестпен өзіңді тексер","Толық сынақ тест емтихандағыдай: 30 сұрақ, 60 минут, калькуляторсыз. Қатені тапсаң, шешуде көрсетілген тарауды қайталайсың.",["10 сынақ тест","300 сұрақ","толық шешулер"]]
+    ],
+    every: "Әр тарауда тағы: «Сұрақтың тілі» (емтихандағы ағылшын сөздері), жиі қателер, 10 мысал және 50 сұрақтық тест.",
+    mocks: { t: "VI бөлім. Толық сынақ тесттер", n: "10 × 30", items: ["10 сынақ тест, әрқайсысында 30 сұрақ, уақыты 60 минут","Әр сұрақтың шешуінде оның қай тарауға жататыны көрсетілген","Кілттер мен толық шешулер кітаптың соңында"] },
+    faq: [
+      ["Кітап бойынша өз бетімше дайындала аламын ба?", ["Иә, кітап осыған арналған. Әр тақырып мысалдан басталады, ереже қарапайым тілмен түсіндіріледі.", "Барлық жаттығу мен тесттің жауабы бар. Тарау тесттері мен сынақ тесттердің толық шешулері кітаптың соңында. Мұғаліммен бірге оқуға да ыңғайлы."]],
+      ["Неге есептер ағылшын тілінде?", ["NUET ағылшын тілінде өтеді. Емтиханда сұрақтың мағынасын бірден түсіну үшін есептерді ағылшынша шығарып үйренген дұрыс.", "Әр тарауда «Сұрақтың тілі» бөлімі бар. Онда сол тақырыпта емтиханда кездесетін ағылшын сөздері мен тіркестері аударылған."]],
+      ["Қай басылымды таңдаған дұрыс?", ["Түсіндірмені қай тілде жеңіл түсінсең, сол басылымды ал. Қазақша басылымда түсіндірме қазақша, орысша басылымда — орысша.", "Есептер мен тесттер екі басылымда да ағылшын тілінде."]],
+      ["Калькулятор керек пе?", ["Жоқ. NUET-те калькуляторға рұқсат жоқ, сондықтан кітаптағы есептер калькуляторсыз шығарылады. Әр тарауда қолмен тез есептеу тәсілдері де бар."]],
+      ["Жеткізу қалай жүреді?", null]
+    ]
+  },
+  ru: {
+    eyebrow: "Nazarbayev University Entrance Test · Mathematics",
+    h1: "Подготовься к математике NUET самостоятельно",
+    sub: "Разбираешь тему на примере, решаешь задачи по этой теме и в конце проверяешь себя на пробном тесте.",
+    langnote: "Объяснения — на русском языке. Задачи — на английском, как на экзамене.",
+    coverAlt: "Обложка русского издания книги NUET Mathematics",
+    facts: [["23","главы, все темы экзамена"],["230","примеров с решением по шагам"],["369","упражнений «Проверь себя»"],["1150","вопросов в тестах по главам"],["10 × 30","пробных тестов с решениями"]],
+    mediaLead: "За 25 секунд — что внутри книги: примеры, чертежи, пробный тест. Полное содержание — в списке тем ниже.",
+    steps: [
+      ["Разбери пример","Каждый раздел начинается с примера из жизни. Правило идёт после него. В конце главы — 10 примеров, решённых по шагам.",["23 главы","230 примеров"]],
+      ["Реши задачи по теме","После каждого раздела — упражнения «Проверь себя», ответы внутри главы. В конце главы тест из 50 вопросов: сначала уровень экзамена, потом сложнее.",["369 упражнений","1150 тестовых вопросов"]],
+      ["Проверь себя на пробном тесте","Пробный тест устроен как экзамен: 30 вопросов, 60 минут, без калькулятора. Ошибся — повтори главу, которая указана в решении.",["10 пробных тестов","300 вопросов","полные решения"]]
+    ],
+    every: "В каждой главе ещё: «Язык вопроса» (английские слова с экзамена), частые ошибки, 10 примеров и тест из 50 вопросов.",
+    mocks: { t: "Часть VI. Пробные тесты", n: "10 × 30", items: ["10 пробных тестов, в каждом 30 вопросов, время 60 минут","В решении каждого вопроса указано, к какой главе он относится","Ключи и полные решения — в конце книги"] },
+    faq: [
+      ["Можно ли готовиться по книге самостоятельно?", ["Да, книга для этого и написана. Каждая тема начинается с примера, правило объясняется простым языком.", "У всех упражнений и тестов есть ответы. Полные решения тестов по главам и пробных тестов — в конце книги. С учителем заниматься по ней тоже удобно."]],
+      ["Почему задачи на английском?", ["NUET проходит на английском языке. Чтобы на экзамене сразу понимать вопрос, задачи лучше решать по-английски с самого начала.", "В каждой главе есть раздел «Язык вопроса»: английские слова и выражения этой темы с переводом. В конце русского издания есть англо-русский словарь терминов."]],
+      ["Какое издание выбрать?", ["Бери то издание, на языке которого тебе легче понимать объяснения. В казахском издании объяснения на казахском, в русском — на русском.", "Задачи и тесты в обоих изданиях на английском."]],
+      ["Нужен ли калькулятор?", ["Нет. На NUET калькулятор запрещён, поэтому все задачи в книге решаются без него. В каждой главе есть приёмы быстрого счёта вручную."]],
+      ["Как работает доставка?", null]
+    ]
+  }
+},
+csca: {
+  name: "CSCA Математика", brand: 'CSCA <span>Математика</span>',
+  pages: { kz: 346, ru: 347 },
+  cover: { kz: "csca/cover-kz.webp", ru: "csca/cover-ru.webp" },
+  media: { type: "video", src: { kz: "csca/video-kz.mp4", ru: "csca/video-ru.mp4" }, poster: { kz: "csca/poster-kz.jpg", ru: "csca/poster-ru.jpg" } },
+  kz: {
+    eyebrow: "China Scholastic Competency Assessment · Mathematics",
+    h1: "CSCA математикасына өз бетіңше дайындал",
+    sub: "Нақты емтихан есептерін талдайсың, әр тақырыпқа тест шығарасың, соңында 5 толық сынақ тестпен өзіңді тексересің.",
+    langnote: "Түсіндірме — қазақ тілінде. Есептер — ағылшын тілінде, емтихандағыдай.",
+    coverAlt: "CSCA Математика кітабының қазақша басылымының мұқабасы",
+    facts: [["17","тарау, бағдарламаның барлық бөлімі"],["170","мысал, көбі нақты емтиханнан"],["850","тарау тестінің сұрағы"],["5 × 48","сынақ тест, шешулерімен"],["3 тіл","сөздік: қазақша, ағылшынша, қытайша"]],
+    mediaLead: "25 секундта кітаптың ішін көр: тарау басы, теория, нақты емтихан есептері, сынақ тест. Толық мазмұны төмендегі тақырыптар тізімінде.",
+    gallery: [["kz-1","Тарау басы: тақырыптың емтихандағы орны және негізгі формулалар"],["kz-2","Теория қарапайым тілмен, сызбалармен"],["kz-3","Мысалдар нақты емтиханнан: «CSCA, 2026 қаңтар, №43»"],["kz-4","Сынақ тест: 48 есеп, 60 минут, тарауларға картасы бар"]],
+    galleryNote: "Беттерді оңға қарай жылжыт →",
+    steps: [
+      ["Мысалды талда","Әр тарауда 10 мысал бар, әрқайсысы бір есеп түріне арналған. Көбі — нақты емтихан есептері, қай емтиханнан алынғаны көрсетілген.",["17 тарау","170 мысал"]],
+      ["Тақырып бойынша есеп шығар","Тарау соңында 50 сұрақтық тест: I бөлім — емтихан деңгейі, II бөлім — сынақ тесттер деңгейі.",["850 тест сұрағы"]],
+      ["Сынақ тестпен өзіңді тексер","Сынақ тест нақты емтихандағыдай: 48 есеп, 60 минут, есептер сол ретпен. Әр тесттің алдында есептердің тарауларға картасы бар: қатені тапсаң, қай тарауды қайталау керегі бірден көрінеді.",["5 сынақ тест","240 есеп","толық шешулер"]]
+    ],
+    every: "Әр тарауда тағы: «CSCA-да бұл тақырып қалай келеді?», емтихан стратегиясы, есеп түрлерінің картасы, сөздік (қазақша – ағылшынша – қытайша), 10 мысал және 50 сұрақтық тест.",
+    mocks: { t: "VIII бөлім. Сынақ тесттер", n: "5 × 48", items: ["5 толық сынақ тест, әрқайсысында 48 есеп, уақыты 60 минут","Есептер нақты емтихандағы ретпен берілген","Әр тесттің алдында есептердің тарауларға картасы бар","Жауаптар мен толық шешулер кітаптың соңында"] },
+    faq: [
+      ["Кітап кімге арналған?", ["Қытай университеттерінің бакалавриатына түсіп, CSCA емтиханының математика бөлімін тапсыратындарға. Математика барлық мамандыққа міндетті.", "Емтихан 60 минут, 48 есеп, әр есепте 4 жауаптың біреуі дұрыс."]],
+      ["Нақты емтихан есептері бар ма?", ["Кітап 2025–2026 жылдардағы бес нақты емтихан мен бес сынақ тесттің есептерін талдап жазылған. Мысалдардың көбі — нақты емтихан есептері, қай емтиханнан алынғаны көрсетілген.", "Бұл нұсқаларды оқушылар есінде сақтап, кейін бөліскен. Кітапты CSCA ұйымдастырушылары шығарған жоқ және бекіткен жоқ."]],
+      ["Неге есептер ағылшын тілінде?", ["CSCA-ны қытайша немесе ағылшынша тапсыруға болады. Кітаптағы есептер ағылшынша, емтихандағы тұжырыммен беріледі, сондықтан емтиханда шартты түсінуге уақыт кетпейді.", "Әр тарауда қазақша – ағылшынша – қытайша сөздік бар."]],
+      ["Өз бетімше дайындала аламын ба?", ["Иә. Теория қарапайым тілмен жазылған, әр тарауда 10 мысал қадаммен шешілген. Барлық тест пен сынақ тесттің жауаптары мен толық шешулері кітаптың соңында."]],
+      ["Қай басылымды таңдаған дұрыс?", ["Түсіндірмені қай тілде жеңіл түсінсең, сол басылымды ал. Есептер екі басылымда да ағылшын тілінде."]],
+      ["Жеткізу қалай жүреді?", null]
+    ]
+  },
+  ru: {
+    eyebrow: "China Scholastic Competency Assessment · Mathematics",
+    h1: "Подготовься к математике CSCA самостоятельно",
+    sub: "Разбираешь реальные экзаменационные задачи, решаешь тест по каждой теме и в конце проверяешь себя на 5 полных пробных тестах.",
+    langnote: "Объяснения — на русском языке. Задачи — на английском, как на экзамене.",
+    coverAlt: "Обложка русского издания книги CSCA Математика",
+    facts: [["17","глав, все разделы программы"],["170","примеров, большинство — с экзамена"],["850","вопросов в тестах по главам"],["5 × 48","пробных тестов с решениями"],["3 языка","словарь: русский, английский, китайский"]],
+    mediaLead: "За 25 секунд — что внутри книги: начало главы, теория, задачи с реального экзамена, пробный тест. Полное содержание — в списке тем ниже.",
+    gallery: [["ru-1","Начало главы: место темы на экзамене и главные формулы"],["ru-2","Теория простым языком, с чертежами"],["ru-3","Примеры с реального экзамена: «CSCA, январь 2026, №43»"],["ru-4","Пробный тест: 48 задач, 60 минут, с картой по главам"]],
+    galleryNote: "Листай страницы вправо →",
+    steps: [
+      ["Разбери пример","В каждой главе 10 примеров, каждый — на свой тип задач. Большинство — реальные экзаменационные задачи, источник указан.",["17 глав","170 примеров"]],
+      ["Реши задачи по теме","В конце главы тест из 50 задач: часть I — уровень экзамена, часть II — уровень пробных тестов.",["850 тестовых задач"]],
+      ["Проверь себя на пробном тесте","Пробный тест устроен как настоящий экзамен: 48 задач, 60 минут, задачи в том же порядке. Перед каждым тестом есть карта задач по главам: ошибся — сразу видно, какую главу повторить.",["5 пробных тестов","240 задач","полные решения"]]
+    ],
+    every: "В каждой главе ещё: «Как эта тема встречается на CSCA?», стратегия на экзамене, карта типов задач, словарь (русский – английский – китайский), 10 примеров и тест из 50 задач.",
+    mocks: { t: "Часть VIII. Пробные тесты", n: "5 × 48", items: ["5 полных пробных тестов, в каждом 48 задач, время 60 минут","Задачи идут в том же порядке, что и на экзамене","Перед каждым тестом — карта задач по главам","Ответы и подробные решения — в конце книги"] },
+    faq: [
+      ["Для кого эта книга?", ["Для тех, кто поступает на бакалавриат в университеты Китая и сдаёт математическую часть экзамена CSCA. Математика обязательна для всех специальностей.", "Экзамен идёт 60 минут: 48 задач, в каждой из 4 вариантов верен один."]],
+      ["Есть ли задачи с реальных экзаменов?", ["Книга написана по разбору пяти реальных экзаменов и пяти пробных тестов 2025–2026 годов. Большинство примеров — реальные экзаменационные задачи, источник указан.", "Эти варианты ученики запомнили и опубликовали после экзамена. Книгу не выпускали и не одобряли организаторы CSCA."]],
+      ["Почему задачи на английском?", ["CSCA можно сдавать на китайском или на английском. Задачи в книге даны на английском, с теми же формулировками, что и на экзамене, поэтому на экзамене не придётся тратить время на понимание условия.", "В каждой главе есть словарь: русский – английский – китайский."]],
+      ["Можно ли готовиться самостоятельно?", ["Да. Теория написана простым языком, в каждой главе 10 примеров с решением по шагам. Ответы и подробные решения всех тестов — в конце книги."]],
+      ["Какое издание выбрать?", ["Бери то, на языке которого тебе легче понимать объяснения. Задачи в обоих изданиях на английском."]],
+      ["Как работает доставка?", null]
+    ]
+  }
+}};
+
+const REVIEWS = {
+  csca: [
+    { lang: "kz", who: { kz: "Оқушы", ru: "Ученик" }, text: ["Жалпы, кітап маған өте жақсы әсер қалдырды. Теориялық материалдар қарапайым әрі түсінікті тілде берілген, ал мысалдар тақырыпты тереңірек меңгеруге көмектеседі.", "Маған әсіресе әр тақырыптың соңында берілген тапсырмалар мен қосымша сөздік ұнады. Сөздіктің болуы математикалық терминдерді түсінуге және ағылшын тіліндегі есептердің шарттарын дұрыс қабылдауға көмектеседі.", "Кітап өте жақсы құрастырылған және CSCA Mathematics пәніне дайындалу үшін пайдалы ресурс деп есептеймін."] },
+    { lang: "ru", who: { kz: "Иман, 11-сынып", ru: "Иман, 11 класс" }, text: ["Учебник очень точный и с конкретной информацией без лишней воды. Материал изложен понятно и последовательно, что помогает легко изучить новую информацию.", "Особенно понравилось наличие практических заданий и наглядных примеров, которые позволяют лучше разобраться в теме. Сама книга объясняет всю структуру CSCA и приводит примеры с самих экзаменов, поэтому даже новичкам будет легко разобраться с книгой и быть уверенным насчёт неё.", "Считаю, что она очень подойдёт для самостоятельного обучения и даже для углубления уже имеющихся знаний. Если нужны просто задания для практики, тут присутствуют 50 заданий на каждую тему и ещё 5 полных мок-тестов."] }
+  ]
+};
+
+const T = {
+kz: {
+  htmlLang: "kk",
+  tabNuet: "Назарбаев Университеті", tabCsca: "Қытай университеттері",
+  priceLabel: "Баспа кітаптың бағасы", priceLabelShort: "Бағасы",
+  cta: "WhatsApp арқылы тапсырыс беру", ctaShort: "Тапсырыс беру",
+  pages: n => `Қазақша басылым · ${n} бет`,
+  vTitle: "Кітаптың іші қандай", vPlay: "Видеоны қосу",
+  sTitle: "Кітаппен қалай оқу керек",
+  flow: "Мысалды талда <i>→</i> Тақырып бойынша есеп шығар <i>→</i> Сынақ тестпен өзіңді тексер",
+  rTitle: "Оқушылардың пікірі", rOrig: "Пікірлер түпнұсқа тілінде берілген.", langTag: { kz: "қазақша", ru: "орысша" },
+  tTitle: "Кітаптағы тақырыптар", tSearchLabel: "Тақырыпты іздеу", tSearch: { nuet: "Тақырыпты ізде, мысалы: пайыз", csca: "Тақырыпты ізде, мысалы: логарифм" },
+  tNone: "Ештеңе табылмады. Басқа сөзбен іздеп көр.",
+  chNo: n => `${n}-тарау`, pg: p => `${p}-бет`, partCount: n => `${n} тарау`, mockRow: "Сынақ тесттер",
+  aTitle: "Авторлар", a1n: "Бейбарыс Бердалиев", a2n: "Арсылан Бердалиев", bioPh: "[Автор туралы 2–3 сөйлем]",
+  qTitle: "Жиі қойылатын сұрақтар",
+  oTitle: "Тапсырыс беру", oLead: "Кітапты және басылымды таңда, қалаңды жаз. Батырманы бассаң, WhatsApp дайын хабарламамен ашылады.",
+  oBook: "Кітап", both: "Екеуі де", oEdition: "Кітаптың тілі",
+  edKz: "Қазақша басылым", edKzNote: "Түсіндірме қазақша, есептер ағылшынша",
+  edRu: "Орысша басылым", edRuNote: "Түсіндірме орысша, есептер ағылшынша",
+  oCity: "Қалаң (міндетті емес)", cityPh: "Мысалы: Ақтөбе",
+  oDelivery: "Жеткізу", oPreview: "WhatsApp-та осы хабарлама ашылады", oNumber: "WhatsApp нөмірі:",
+  copy: "Көшіру", copied: "Көшірілді",
+  edName: { kz: "қазақша", ru: "орысша" },
+  msg: (books, ed, city, many) => `Сәлеметсіз бе! ${books} ${many ? "кітаптарына" : "кітабына"} тапсырыс бергім келеді.\nКітап тілі: ${ed}.\nҚалам: ${city || "…"}`,
+  bothNames: "NUET Mathematics және CSCA Математика",
+  authorsLine: "Авторлары: Бейбарыс Бердалиев, Арсылан Бердалиев.",
+  discNuet: "NUET Mathematics кітабы Назарбаев Университетімен немесе Cambridge University Press & Assessment ұйымымен байланысты емес және олармен келісілмеген. NUET атауы тек емтиханды сипаттау үшін қолданылады.",
+  discCsca: "CSCA Математика кітабын CSCA ұйымдастырушылары шығарған жоқ және бекіткен жоқ. Кітаптағы мысалдар 2025–2026 жылдардағы емтихандар мен сынақ тесттерінің оқушылар есінде сақтап, кейін бөліскен нұсқаларына негізделген."
+},
+ru: {
+  htmlLang: "ru",
+  tabNuet: "Назарбаев Университет", tabCsca: "Университеты Китая",
+  priceLabel: "Цена печатной книги", priceLabelShort: "Цена",
+  cta: "Заказать в WhatsApp", ctaShort: "Заказать",
+  pages: n => `Русское издание · ${n} с.`,
+  vTitle: "Как выглядит книга внутри", vPlay: "Включить видео",
+  sTitle: "Как заниматься по книге",
+  flow: "Разбери пример <i>→</i> Реши задачи по теме <i>→</i> Проверь себя на пробном тесте",
+  rTitle: "Отзывы учеников", rOrig: "Отзывы приведены на языке оригинала.", langTag: { kz: "на казахском", ru: "на русском" },
+  tTitle: "Темы книги", tSearchLabel: "Поиск темы", tSearch: { nuet: "Найди тему, например: проценты", csca: "Найди тему, например: логарифм" },
+  tNone: "Ничего не нашлось. Попробуй другое слово.",
+  chNo: n => `Глава ${n}`, pg: p => `с. ${p}`, partCount: n => `${n} ${n%10===1&&n%100!==11?"глава":(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?"главы":"глав"}`, mockRow: "Пробные тесты",
+  aTitle: "Авторы", a1n: "Бейбарыс Бердалиев", a2n: "Арсылан Бердалиев", bioPh: "[2–3 предложения об авторе]",
+  qTitle: "Частые вопросы",
+  oTitle: "Как заказать", oLead: "Выбери книгу и издание, напиши свой город. Кнопка откроет WhatsApp с готовым сообщением.",
+  oBook: "Книга", both: "Обе книги", oEdition: "Язык книги",
+  edKz: "Казахское издание", edKzNote: "Объяснения на казахском, задачи на английском",
+  edRu: "Русское издание", edRuNote: "Объяснения на русском, задачи на английском",
+  oCity: "Твой город (необязательно)", cityPh: "Например: Актобе",
+  oDelivery: "Доставка", oPreview: "В WhatsApp откроется это сообщение", oNumber: "Номер WhatsApp:",
+  copy: "Скопировать", copied: "Скопировано",
+  edName: { kz: "казахский", ru: "русский" },
+  msg: (books, ed, city) => `Здравствуйте! Хочу заказать ${books}.\nЯзык книги: ${ed}.\nМой город: ${city || "…"}`,
+  bothNames: "NUET Mathematics и CSCA Математика",
+  authorsLine: "Авторы: Бейбарыс Бердалиев, Арсылан Бердалиев.",
+  discNuet: "Книга NUET Mathematics не связана с Назарбаев Университетом или Cambridge University Press & Assessment и не согласована с ними. Название NUET используется только для описания экзамена.",
+  discCsca: "Книга CSCA Математика не выпущена и не одобрена организаторами CSCA. Примеры основаны на вариантах экзаменов и пробных тестов 2025–2026 годов, которые ученики запомнили и опубликовали."
+}};
+
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store = { get(k){ try { return localStorage.getItem(k) } catch(e){ return null } }, set(k,v){ try { localStorage.setItem(k,v) } catch(e){} } };
+const money = n => Number(n).toLocaleString("ru-RU").replace(/[\s,]/g, " ") + " ₸";
+
+let lang = store.get("nuet-lang"); if (lang !== "kz" && lang !== "ru") lang = "kz";
+let book = (location.hash || "").replace("#", ""); if (book !== "nuet" && book !== "csca") book = "nuet";
+let edition = null, edTouched = false, orderBook = null, bkTouched = false;
+
+function waText(){
+  const t = T[lang], ed = edition || lang, ob = orderBook || book;
+  const names = ob === "both" ? t.bothNames : BOOKS[ob].name;
+  return t.msg(names, t.edName[ed], $("#city").value.trim(), ob === "both");
+}
+function total(){ const ob = orderBook || book; return ob === "both" ? CONFIG.price.nuet + CONFIG.price.csca : CONFIG.price[ob]; }
+function refreshOrder(){
+  $("#preview").textContent = waText();
+  $(".js-total").textContent = money(total());
+  const href = `https://wa.me/${CONFIG.whatsapp}?text=` + encodeURIComponent(waText());
+  $$(".js-wa").forEach(a => a.href = href);
+}
+
+function renderTopics(){
+  const t = T[lang], B = BOOKS[book][lang], q = $("#q").value.trim().toLowerCase();
+  const hl = s => { const e = esc(s); if (!q) return e; const i = s.toLowerCase().indexOf(q); return i < 0 ? e : esc(s.slice(0,i)) + "<mark>" + esc(s.slice(i, i+q.length)) + "</mark>" + esc(s.slice(i+q.length)); };
+  let html = "", any = false;
+  TOCS[book][lang].forEach((g, gi) => {
+    const rows = g.ch.map(c => {
+      const hitT = c.t.toLowerCase().includes(q), hitS = c.s.filter(s => s.toLowerCase().includes(q));
+      if (q && !hitT && !hitS.length && !g.t.toLowerCase().includes(q)) return "";
+      return `<details class="ch"${q && hitS.length ? " open" : ""}><summary><span class="no">${t.chNo(c.n)}</span><span class="tt">${hl(c.t)}</span><span class="pg">${t.pg(c.p)}</span></summary><ul>${c.s.map(s => `<li>${hl(s)}</li>`).join("")}</ul></details>`;
+    }).join("");
+    if (!rows) return; any = true;
+    html += `<details class="part"${q ? " open" : ""}><summary><h3>${hl(g.t)}</h3><span class="sumr"><span class="mono">${t.partCount(g.ch.length)}</span><span class="chev"></span></span></summary><div class="chs">${rows}</div></details>`;
+  });
+  const m = B.mocks;
+  if (!q || m.t.toLowerCase().includes(q) || m.items.some(s => s.toLowerCase().includes(q))) {
+    any = true;
+    html += `<details class="part"${q ? " open" : ""}><summary><h3>${hl(m.t)}</h3><span class="sumr"><span class="mono">${m.n}</span><span class="chev"></span></span></summary><div class="chs"><details class="ch" open><summary><span class="no">${m.n}</span><span class="tt">${t.mockRow}</span><span class="pg"></span></summary><ul>${m.items.map(s => `<li>${hl(s)}</li>`).join("")}</ul></details></div></details>`;
+  }
+  $("#parts").innerHTML = html;
+  $("#none").hidden = any;
+}
+
+function renderMedia(){
+  const t = T[lang], M = BOOKS[book].media, B = BOOKS[book][lang], box = $("#videoBox"), gal = $("#gallery");
+  if (M.type === "video") {
+    gal.hidden = true; box.hidden = false;
+    const src = M.src[lang];
+    if (box.dataset.src === src) return;
+    box.dataset.src = src;
+    box.innerHTML = `<video src="${esc(src)}" poster="${esc(M.poster[lang])}" muted playsinline loop preload="none"></video><button type="button" class="play" aria-label="${esc(t.vPlay)}"><span><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></button>`;
+    const v = box.querySelector("video"), b = box.querySelector(".play");
+    b.addEventListener("click", () => { v.controls = true; b.remove(); const p = v.play(); if (p && p.catch) p.catch(() => {}); });
+  } else {
+    box.hidden = true; box.innerHTML = ""; box.dataset.src = "";
+    gal.hidden = false;
+    gal.innerHTML = B.gallery.map(([f, cap]) => `<figure><img src="csca/${f}.webp" width="620" height="877" loading="lazy" alt="${esc(cap)}"><figcaption>${esc(cap)}</figcaption></figure>`).join("") ;
+  }
+}
+
+function renderReviews(){
+  const list = REVIEWS[book] || [], t = T[lang];
+  $("#reviews").hidden = !list.length;
+  $("#reviewList").innerHTML = list.map(r => `<figure class="review" lang="${r.lang === "kz" ? "kk" : "ru"}"><blockquote>${r.text.map(p => `<p>${esc(p)}</p>`).join("")}</blockquote><figcaption><b>${esc(r.who[lang])}</b><span>CSCA Математика</span><span class="tag">${esc(t.langTag[r.lang])}</span></figcaption></figure>`).join("");
+}
+
+function apply(){
+  const t = T[lang], BK = BOOKS[book], B = BK[lang];
+  document.documentElement.lang = t.htmlLang;
+  $$("[data-t]").forEach(el => { const v = t[el.dataset.t]; if (typeof v === "string") el.innerHTML = v; });
+  $$("[data-b]").forEach(el => { const v = B[el.dataset.b]; if (typeof v === "string") el.innerHTML = v; });
+  $$(".lang button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  $$(".book-tab").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.book === book)));
+  $(".js-brand").innerHTML = BK.brand;
+  document.title = BK.name;
+  const img = $(".js-cover"); img.src = BK.cover[lang]; img.alt = B.coverAlt;
+  $(".js-pages").textContent = t.pages(BK.pages[lang]);
+  $$(".js-price").forEach(el => el.textContent = money(CONFIG.price[book]));
+  $$(".js-pn").forEach(el => el.textContent = money(CONFIG.price.nuet));
+  $$(".js-pc").forEach(el => el.textContent = money(CONFIG.price.csca));
+  $$(".js-p2").forEach(el => el.textContent = money(CONFIG.price.nuet + CONFIG.price.csca));
+  $("#facts").innerHTML = B.facts.map(([n, l]) => `<li><b>${esc(n)}</b><span>${esc(l)}</span></li>`).join("");
+  $("#steps").innerHTML = B.steps.map(([h, p, c], i) => `<li><span class="n">0${i+1}</span><div><h3>${esc(h)}</h3><p>${esc(p)}</p><p class="count">${c.map(x => `<span>${esc(x)}</span>`).join("")}</p></div></li>`).join("");
+  $("#q").placeholder = t.tSearch[book];
+  $("#city").placeholder = t.cityPh;
+  const del = `<p>${esc(CONFIG.delivery[lang])}</p>`;
+  $(".js-delivery").innerHTML = del;
+  $("#faq").innerHTML = B.faq.map(([q, a], i) => `<details id="faq-${book}-${i}"><summary>${esc(q)}<span class="chev"></span></summary><div class="ans">${a ? a.map(p => `<p>${esc(p)}</p>`).join("") : del}</div></details>`).join("");
+  $(".js-num").textContent = "+" + CONFIG.whatsapp;
+  [["beibarys","#bio1"],["arsylan","#bio2"]].forEach(([w, sel]) => { const b = CONFIG.bio[w][lang]; $(sel).innerHTML = b ? esc(b) : `<em class="todo">${t.bioPh}</em>`; });
+  const ob = orderBook || book;
+  $(".js-ed-kz").src = BOOKS[ob === "both" ? book : ob].cover.kz;
+  $(".js-ed-ru").src = BOOKS[ob === "both" ? book : ob].cover.ru;
+  if (!edTouched) edition = lang;
+  if (!bkTouched) orderBook = book;
+  $("#ed-" + edition).checked = true;
+  $("#bk-" + orderBook).checked = true;
+  renderTopics(); renderMedia(); renderReviews(); refreshOrder();
+}
+
+$$(".lang button").forEach(b => b.addEventListener("click", () => { lang = b.dataset.lang; store.set("nuet-lang", lang); apply(); }));
+$$(".book-tab").forEach(b => b.addEventListener("click", () => {
+  if (book === b.dataset.book) return;
+  book = b.dataset.book; $("#q").value = "";
+  try { history.replaceState(null, "", "#" + book); } catch(e) { location.hash = book; }
+  apply();
+}));
+window.addEventListener("hashchange", () => { const h = location.hash.replace("#",""); if ((h === "nuet" || h === "csca") && h !== book) { book = h; apply(); } });
+$$('input[name="ed"]').forEach(r => r.addEventListener("change", () => { edition = r.value; edTouched = true; refreshOrder(); }));
+$$('input[name="bk"]').forEach(r => r.addEventListener("change", () => { orderBook = r.value; bkTouched = true; apply(); }));
+$("#city").addEventListener("input", refreshOrder);
+$("#q").addEventListener("input", renderTopics);
+$("#orderForm").addEventListener("submit", e => e.preventDefault());
+$("#copyNum").addEventListener("click", e => {
+  const btn = e.currentTarget, txt = "+" + CONFIG.whatsapp;
+  const done = () => { btn.textContent = T[lang].copied; setTimeout(() => btn.textContent = T[lang].copy, 1600); };
+  const sel = () => { const r = document.createRange(); r.selectNodeContents($(".js-num")); getSelection().removeAllRanges(); getSelection().addRange(r); };
+  try { navigator.clipboard.writeText(txt).then(done, sel); } catch(err) { sel(); }
+});
+
+(function(){
+  const bar = $("#bar"); const seen = new Set();
+  if (!("IntersectionObserver" in window)) { bar.classList.remove("off"); return; }
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target));
+    const off = seen.size > 0; bar.classList.toggle("off", off); bar.setAttribute("aria-hidden", String(off));
+    $("#cta-bar").tabIndex = off ? -1 : 0;
+  });
+  io.observe($("#cta-hero")); io.observe($("#order"));
+})();
+
+apply();
+</script>
+
+</body>
+</html>
