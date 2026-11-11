@@ -149,8 +149,31 @@ mark{background:rgba(201,160,72,.32);color:inherit;border-radius:2px;padding:0 1
 
 /* authors */
 .authors{margin-top:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.author{border-top:2px solid var(--ink);padding-top:14px;display:grid;gap:8px}
+.author{border-top:2px solid var(--ink);padding-top:14px;display:grid;gap:8px;align-content:start}
 .author p{color:var(--muted)}
+
+/* results */
+.rsub{margin-top:26px;font:500 .78rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink)}
+.rlead{margin-top:6px;color:var(--muted)}
+.nres{margin-top:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ncard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.ncard .top{background:var(--navy);color:var(--on-navy);padding:16px 18px 14px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:18px 18px}
+.ncard .top small{font:500 .72rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--on-navy-muted)}
+.ncard .top b{font:800 2.6rem/1 var(--f-display);color:var(--gold)}
+.ncard dl{margin:0;padding:6px 18px 10px}
+.ncard dl div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.ncard dl div:last-child{border-bottom:0}
+.ncard dt{color:var(--muted)}
+.ncard dd{margin:0;font:600 1.15rem var(--f-display);color:var(--ink)}
+.ncard .proof{display:block;margin:0 18px 18px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.ncard .proof img{display:block;width:100%;height:auto}
+.ncard .proof span{display:block;padding:7px 10px;font:500 .72rem var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:#4d5d76;border-top:1px solid #d8dfea;background:#f5f7fb}
+.sres{margin-top:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.sres a{display:grid;place-items:center;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;aspect-ratio:3/2}
+.sres a:last-child:nth-child(even){grid-column:1/-1;justify-self:center;width:calc(50% - 7px);aspect-ratio:auto}
+.sres a.wide{grid-column:1/-1;aspect-ratio:auto}
+.sres img{display:block;width:100%;height:100%;object-fit:contain}
 
 /* faq */
 .faq{margin-top:22px;border-top:1px solid var(--line)}
@@ -205,6 +228,9 @@ footer b{color:var(--on-navy);font-family:var(--f-display)}
   .facts li:last-child{grid-column:1/-1}
   section.block{padding-block:44px}
   .authors{grid-template-columns:minmax(0,1fr)}
+  .nres,.sres{grid-template-columns:minmax(0,1fr)}
+  .sres a:last-child:nth-child(even){width:100%}
+  .sres a{aspect-ratio:auto}
   .eds{grid-template-columns:minmax(0,1fr)}
   .video-box{max-width:100%}
   .bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;align-items:center;justify-content:space-between;gap:12px;
@@ -349,6 +375,24 @@ footer b{color:var(--on-navy);font-family:var(--f-display)}
         <div class="author"><h3 data-t="a1n"></h3><p id="bio1"></p></div>
         <div class="author"><h3 data-t="a2n"></h3><p id="bio2"></p></div>
       </div>
+      <h2 style="margin-top:48px" data-t="rTitle"></h2>
+      <h3 class="rsub">NUET</h3>
+      <p class="rlead" data-t="rNuetLead"></p>
+      <div class="nres">
+        <div class="ncard"><div class="top"><small>NUET · <span data-t="rTotal"></span></small><b>187</b></div>
+          <dl><div><dt>Mathematics</dt><dd>109</dd></div><div><dt>Thinking Skills</dt><dd>78</dd></div></dl>
+          <a class="proof" href="results/nuet-187.webp" target="_blank" rel="noopener"><img src="results/nuet-187.webp" width="364" height="527" loading="lazy" alt="NUET 187"><span data-t="rProof"></span></a></div>
+        <div class="ncard"><div class="top"><small>NUET · <span data-t="rTotal"></span></small><b>157</b></div>
+          <dl><div><dt>Mathematics</dt><dd>61</dd></div><div><dt>Thinking Skills</dt><dd>96</dd></div></dl>
+          <a class="proof" href="results/nuet-157.webp" target="_blank" rel="noopener"><img src="results/nuet-157.webp" width="423" height="627" loading="lazy" alt="NUET 157"><span data-t="rProof"></span></a></div>
+      </div>
+      <h3 class="rsub">SAT</h3>
+      <div class="sres">
+        <a class="wide" href="results/sat-1530.webp" target="_blank" rel="noopener"><img src="results/sat-1530.webp" width="1200" height="584" loading="lazy" alt="SAT 1530"></a>
+        <a href="results/sat-1500.webp" target="_blank" rel="noopener"><img src="results/sat-1500.webp" width="710" height="465" loading="lazy" alt="SAT 1500"></a>
+        <a href="results/sat-1440.webp" target="_blank" rel="noopener"><img src="results/sat-1440.webp" width="880" height="435" loading="lazy" alt="SAT 1440"></a>
+        <a href="results/sat-1390.webp" target="_blank" rel="noopener"><img src="results/sat-1390.webp" width="624" height="695" loading="lazy" alt="SAT 1390"></a>
+      </div>
       <h2 style="margin-top:48px" data-t="qTitle"></h2>
       <div class="faq" id="faq"></div>
     </div></div>
@@ -420,7 +464,16 @@ const CONFIG = {
     kz: "Қазақстанның кез келген қаласына жеткіземіз: Қазпошта немесе inDrive арқылы. Жеткізу ақысын сатып алушы төлейді, бағасы қаланың қашықтығына байланысты. Нақты сомасын WhatsApp-та сұра.",
     ru: "Доставляем в любой город Казахстана: через Казпочту или inDrive. Доставку оплачивает покупатель, цена зависит от того, насколько далеко твой город. Точную сумму уточни в WhatsApp."
   },
-  bio: { beibarys: { kz: "", ru: "" }, arsylan: { kz: "", ru: "" } }
+  bio: {
+    beibarys: {
+      kz: "SDU түлегі, 6 жылдық тәжірибесі бар математика мұғалімі. NUET, CSCA, ҰБТ және SAT емтихандарына дайындайды. 2024–2025 оқу жылы NUET-ке дайындаған 5 оқушысының үшеуі 120 өту балынан асып, оның екеуі грантқа түсті.",
+      ru: "Выпускник SDU, учитель математики с опытом 6 лет. Готовит к экзаменам NUET, CSCA, ЕНТ и SAT. В 2024–2025 учебном году трое из 5 его учеников, сдававших NUET, набрали больше проходных 120 баллов, а двое из них поступили на грант."
+    },
+    arsylan: {
+      kz: "Назарбаев Университетінің түлегі, 7 жылдық тәжірибесі бар математика мұғалімі. NUET, CSCA, ҰБТ және SAT емтихандарына дайындайды.",
+      ru: "Выпускник Назарбаев Университета, учитель математики с опытом 7 лет. Готовит к экзаменам NUET, CSCA, ЕНТ и SAT."
+    }
+  }
 };
 /* ============================================================ */
 
@@ -560,6 +613,7 @@ kz: {
   tNone: "Ештеңе табылмады. Басқа сөзбен іздеп көр.",
   chNo: n => `${n}-тарау`, pg: p => `${p}-бет`, partCount: n => `${n} тарау`, mockRow: "Сынақ тесттер",
   aTitle: "Авторлар", a1n: "Бейбарыс Бердалиев", a2n: "Арсылан Бердалиев", bioPh: "[Автор туралы 2–3 сөйлем]",
+  rTitle: "Оқушыларымыздың нәтижелері", rTotal: "жалпы балл", rProof: "Нәтиже скриншоты", rNuetLead: "Оқушыларымыздың NUET нәтижелерінен мысалдар.",
   qTitle: "Жиі қойылатын сұрақтар",
   oTitle: "Тапсырыс беру", oLead: "Кітапты және басылымды таңда, қалаңды жаз. Батырманы бассаң, WhatsApp дайын хабарламамен ашылады.",
   oBook: "Кітап", both: "Екеуі де", oEdition: "Кітаптың тілі",
@@ -589,6 +643,7 @@ ru: {
   tNone: "Ничего не нашлось. Попробуй другое слово.",
   chNo: n => `Глава ${n}`, pg: p => `с. ${p}`, partCount: n => `${n} ${n%10===1&&n%100!==11?"глава":(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20))?"главы":"глав"}`, mockRow: "Пробные тесты",
   aTitle: "Авторы", a1n: "Бейбарыс Бердалиев", a2n: "Арсылан Бердалиев", bioPh: "[2–3 предложения об авторе]",
+  rTitle: "Результаты наших учеников", rTotal: "общий балл", rProof: "Скриншот результата", rNuetLead: "Примеры результатов NUET наших учеников.",
   qTitle: "Частые вопросы",
   oTitle: "Как заказать", oLead: "Выбери книгу и издание, напиши свой город. Кнопка откроет WhatsApp с готовым сообщением.",
   oBook: "Книга", both: "Обе книги", oEdition: "Язык книги",
